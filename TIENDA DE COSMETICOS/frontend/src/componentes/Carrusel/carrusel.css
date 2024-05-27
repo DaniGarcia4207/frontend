@@ -1,0 +1,23 @@
+.container-fluid {
+    height: 50%;
+    width: 100%;
+}
+.carousel-inner img{
+    height: auto;
+    max-height: 500px;
+}
+.carousel-item{
+    /* Arriba | Derecha | Abajo | Izquierda */
+    padding: 0.5em 3em 1em 3em;
+}
+.carousel{
+    margin: 0% 6% 0% 6%;
+}
+/*.carousel-control-prev{
+    background: none;
+    border: none;
+}
+.carousel-control-next{
+    background: none;
+    border: none;
+}*/

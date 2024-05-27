@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "identificacion": "123456",
+        "nombres": "Dani",
+        "apellidos": "Garcia",
+        "email": "daniela@gmail.com",
+        "direccion": "alacala123456789",
+        "telefono": "3144270799",
+        "fechaNacimiento": "2024-04-18",
+        "password": "1@Daniela",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-22T20:13:21.693Z"
+    },
+    {
+        "id": 2,
+        "identificacion": "1234567812",
+        "nombres": "camilo",
+        "apellidos": "Garcia",
+        "email": "camilo@gmail.com",
+        "direccion": "pereira123456789",
+        "telefono": "3157894568",
+        "fechaNacimiento": "2024-04-01",
+        "password": "1@Camilo",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-22T20:16:08.715Z"
+    },
+    {
+        "id": 3,
+        "identificacion": "123456790",
+        "nombres": "jaime",
+        "apellidos": "loaiza",
+        "email": "jaime@gmail.com",
+        "direccion": "pereira123456789",
+        "telefono": "3254789678",
+        "fechaNacimiento": "2024-04-11",
+        "password": "1@Jaimeloaiza",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-22T20:25:05.300Z"
+    },
+    {
+        "id": 4,
+        "identificacion": "12345",
+        "nombres": "David",
+        "apellidos": "Elnomo",
+        "email": "DavidElnomo@gmail.com",
+        "direccion": "bosquefuistesinarboles",
+        "telefono": "3225468978",
+        "fechaNacimiento": "2024-04-11",
+        "password": "1@David7",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-04-30T21:25:02.770Z"
+    }
+]
