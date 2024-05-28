@@ -6,6 +6,7 @@ import './registro.css'
 // import Footer from './footer/Footer';
 
 export default function Registro() {
+    let URL = process.env.REACT_APP_ENVIRONMENT
     const [identificacionError, setIdentificacionError] = useState('')
     const [nomError, setNomError] = useState(false)
     const [apellidoError, setApellidoError] = useState(false)
@@ -107,16 +108,22 @@ export default function Registro() {
             setPassComparacion(true)
             return;
         }
-        console.log("--------------->>>",values)
-        fetch('http://localhost:3001/registro-usuario', {
+        console.log("--------------->>>",URL)
+        /*fetch('http://localhost:3001/registro-usuario', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
             },
             body: JSON.stringify(values),
+        })*/
+        fetch (`${URL}/registro-usuario`,{ // cuando se ejecuta npm start se carga el archivo devlopment.env
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
+            }
         })
-
             .then((response) => {
                 if (response.status === 200) {
                     // alert("Usuario creado con éxito")
