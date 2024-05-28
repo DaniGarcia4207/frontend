@@ -100,9 +100,9 @@ const controller = {
               direccion: req.body.direccion,
               telefono: req.body.telefono,
               fechaNacimiento: req.body.fechaNacimiento,
-              deptoResidencia: req.body.deptoResidencia,
+              /*deptoResidencia: req.body.deptoResidencia,
               municipioResidencia: req.body.municipioResidencia,
-              password: req.body.password,
+              password: req.body.password,*/
               estado: "activo",
               rol: "Usuario",
               fecha_creación: new Date(),
