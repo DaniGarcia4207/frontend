@@ -108,7 +108,6 @@ export default function Registro() {
             setPassComparacion(true)
             return;
         }
-        console.log("--------------->>>",URL)
         /*fetch('http://localhost:3001/registro-usuario', {
             method: 'POST',
             headers: {
@@ -117,6 +116,7 @@ export default function Registro() {
             },
             body: JSON.stringify(values),
         })*/
+        console.log("--------------->>>",URL)
         fetch (`${URL}/registro-usuario`,{ // cuando se ejecuta npm start se carga el archivo devlopment.env
             method:"POST",
             headers:{
