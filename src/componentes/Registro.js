@@ -6,7 +6,7 @@ import './registro.css'
 // import Footer from './footer/Footer';
 
 export default function Registro() {
-    let URL = process.env.REACT_APP_ENVIRONMENT
+    let URL = process.env.REACT_ENVIRONMENT
     const [identificacionError, setIdentificacionError] = useState('')
     const [nomError, setNomError] = useState(false)
     const [apellidoError, setApellidoError] = useState(false)
@@ -122,7 +122,8 @@ export default function Registro() {
             headers:{
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
-            }
+            },
+            body: JSON.stringify(values)
         })
             .then((response) => {
                 if (response.status === 200) {
