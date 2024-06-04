@@ -79,6 +79,7 @@ app.use(cors())
 
 const controller = {
     register: function(req, res){
+      console.log("body",req.body)
         let config = {
             method: "GET",
             maxBodyLength: Infinity,
@@ -100,9 +101,7 @@ const controller = {
               direccion: req.body.direccion,
               telefono: req.body.telefono,
               fechaNacimiento: req.body.fechaNacimiento,
-              /*deptoResidencia: req.body.deptoResidencia,
-              municipioResidencia: req.body.municipioResidencia,
-              password: req.body.password,*/
+              password: req.body.password,
               estado: "activo",
               rol: "Usuario",
               fecha_creación: new Date(),

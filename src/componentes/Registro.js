@@ -34,7 +34,7 @@ export default function Registro() {
         setErrorEmailVacio(false) //Para cuan do dejen vacío el campo email
     }
     function dirError() {
-        setDireccionError(false)
+        setDireccionError(false) 
     }
     function telError() {
         setTelefonoError(false)
@@ -116,6 +116,7 @@ export default function Registro() {
             },
             body: JSON.stringify(values),
         })*/
+        console.log(values)
         console.log("--------------->>>",URL)
         fetch (`${URL}/registro-usuario`,{ // cuando se ejecuta npm start se carga el archivo devlopment.env
             method:"POST",
@@ -123,6 +124,7 @@ export default function Registro() {
                 "Content-Type": "application/json",
                 'Accept': 'application/json'
             },
+            body: JSON.stringify(values),
         })
             .then((response) => {
                 if (response.status === 200) {
@@ -138,7 +140,7 @@ export default function Registro() {
                 if (response.status === 400) {
                     //alert(" + response.status)
                     Swal.fire({
-                        title: "No fue posible crear el usuario porque ya existe el correo ingresado " + values.email,
+                        title: "No fue posible crear el usuario porque ya existe el correo ingresado" + values.email,
                         icon: "warning"
                     })
 
