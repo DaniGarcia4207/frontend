@@ -7,6 +7,7 @@ const DataProvider = ({ children}) => {
 
     return(
         //Todos los valores que esten dentro de este componente se van a repartir en toda la aplicaccion
-        <dataContext.Provider value={(comprasDelCarrito, setComprasDelCarrito, cantidadElementos, setCantidadElementos)}></dataContext.Provider>
+        <dataContext.Provider value={(comprasDelCarrito, setComprasDelCarrito, cantidadElementos, setCantidadElementos)}>{children}</dataContext.Provider>
     )
 }
+export default DataProvider

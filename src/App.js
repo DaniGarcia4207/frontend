@@ -5,19 +5,26 @@ import NotFound from './componentes/NotFound';
 import Registro from './componentes/Registro';
 import InicioSeccion from './componentes/Login';
 import InicioSesion from './componentes/InicioSesion';
+import DataProvider from './componentes/context/DataContext';
+import CarritoVacio from './componentes/carrito/CarritoVacio';
+import Carrito from './componentes/carrito/CarritoElements';
 
 function App(){
   return(
     //el hashRouter es para que cargue correctamente la vista segun un tutorial jajajaj
-    <HashRouter>
-      <Routes>
-        <Route exact path='/'   element={<Inicio/>}/>
-        <Route exact path='/registro'   element={<Registro/>}/>
-        <Route exact path='/inicio'   element={<InicioSeccion/>}/>
-        <Route exact path='*'   element={<NotFound/>}/>
-        <Route exact path='/sesion'   element={<InicioSesion/>}/>
-      </Routes>
-    </HashRouter>
+    <DataProvider>
+      <HashRouter>
+        <Routes>
+          <Route exact path='/'   element={<Inicio/>}/>
+          <Route exact path='/registro'   element={<Registro/>}/>
+          <Route exact path='/inicio'   element={<InicioSeccion/>}/>
+          <Route exact path='*'   element={<NotFound/>}/>
+          <Route exact path='/sesion'   element={<InicioSesion/>}/>
+          <Route exact path='/carrito'   element={<Carrito/>}/>
+          <Route exact path='/carrito-vacio'   element={<CarritoVacio/>}/>
+        </Routes>
+      </HashRouter>
+    </DataProvider>
   )
 }
 
