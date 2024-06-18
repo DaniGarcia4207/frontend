@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>PRUEBA-API PERSONAS</title>
+</head>
+<body class="bg-info-subtl">
+    <!-- endpoint : obtener, insertar, actualizar, eliminar -->
+    <button type="button" class="btn btn-info ms-5 mt-5" data-bs-toggle="modal" data-bs-target="#modalInsertar">
+        INSERTAR
+    </button>
+    <div class="p-5 pt-2">
+        <table class="table table-bordered">
+            <thead class=" bg-dark text-light text-center">
+                <th>N°</th>
+                <th>CEDULA</th>
+                <th>NOMBRES</th>
+                <th>APELLIDOS</th>
+                <th>TELEFONO</th>
+                <th>DIRECCION</th>
+                <th>EMAIL</th>
+                <th></th>
+            </thead>
+            <tbody id="row">  </tbody>
+        </table>
+
+        <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalInsertar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">INSERTAR PERSONA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formInsertar" action="#">
+            <Label class="form-label" for="cedulaInsertar">CEDULA</Label>
+            <input id="cedulaInsertar" class="form-control"  type="number" name="cedula" required>
+
+            <Label class="form-label" for="nombresInsertar">NOMBRES</Label>
+            <input class="form-control" type="text" name="nombres" id="nombresInsertar" required>
+
+            <Label class="form-label" for="apellidosInsertar">APELLIDOS</Label>
+            <input class="form-control" type="text" name="apellidos" id="apellidosInsertar" required>
+
+            <Label class="form-label" for="telefonoInsertar">TELEFONO</Label>
+            <input class="form-control" type="text" name="telefono" id="telefonoInsertar" required>
+
+            <Label class="form-label" for="direccionInsertar">DIRECCION</Label>
+            <input class="form-control" type="text" name="direccion" id="direccionInsertar" required>
+
+            <Label class="form-label" for="emailInsertar">EMAIL</Label>
+            <input id="emailInsertar" class="form-control"  type="email" name="email" required>
+
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+            <button type="submit" class="btn btn-primary">INSERTAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalActualizar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">ACTUALIZAR PERSONA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formActualizar" action="#">
+            <Label class="form-label" for="cedulaActualizar">CEDULA</Label>
+            <input id="cedulaActualizar" class="form-control"  type="number" name="cedula" required>
+
+            <Label class="form-label" for="nombresActualizar">NOMBRES</Label>
+            <input class="form-control" type="text" name="nombres" id="nombresActualizar" required>
+
+            <Label class="form-label" for="apellidosActualizar">APELLIDOS</Label>
+            <input class="form-control" type="text" name="apellidos" id="apellidosActualizar" required>
+
+            <Label class="form-label" for="telefonoActualizar">TELEFONO</Label>
+            <input class="form-control" type="text" name="telefono" id="telefonoActualizar" required>
+
+            <Label class="form-label" for="direccionActualizar">DIRECCION</Label>
+            <input class="form-control" type="text" name="direccion" id="direccionActualizar" required>
+
+            <Label class="form-label" for="emailActualizar">EMAIL</Label>
+            <input id="emailActualizar" class="form-control"  type="email" name="email" required>
+
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+            <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    <script src="JS/main.js"></script>
+</body>
+</html>

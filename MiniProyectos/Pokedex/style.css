@@ -1,0 +1,16 @@
+.contenedor{
+    padding: 0.5em 9em;
+}
+body{
+    background-color: rgb(170, 233, 247);
+}
+.content{
+    background-color: white;
+    border: solid 0.2em blue;
+}
+.btn{
+    border: solid 0.1em blue;
+}
+.button{
+    border: solid 0.1em rgb(121, 57, 121);
+}
