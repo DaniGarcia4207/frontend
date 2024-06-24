@@ -33,3 +33,15 @@ app.post("/registro-usuario", user.register)
 app.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`)
 })
+
+//solicitandpo la conexion a la base de datos
+const conexion = require('./configDB/configDB.js')
+app.get("/todos-los-usuarios",(req,res)=>{
+  conexion.connect(function(err){
+    if(err)throw err;
+    conexion.query("SELECT * FROM sql10715865.usuarios", function(err, result, fields){
+      if(err) throw err;
+      res.send(result)
+    })
+  })
+})
