@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 const user = require("./controller/userControler")
-app.post("/registro-usuario", user.register)
+app.use("/registro-usuario", user.registerBD)
 //app.use("/login", user.login)
 
 
