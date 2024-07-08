@@ -39,7 +39,7 @@ const conexion = require('./configDB/configDB.js')
 app.get("/todos-los-usuarios",(req,res)=>{
   conexion.connect(function(err){
     if(err)throw err;
-    conexion.query("SELECT * FROM sql10715865.usuarios", function(err, result, fields){
+    conexion.query("SELECT * FROM ecommerce.usuarios", function(err, result, fields){
       if(err) throw err;
       res.send(result)
     })
