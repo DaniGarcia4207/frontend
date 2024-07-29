@@ -54,5 +54,20 @@
         "estado": "activo",
         "rol": "Usuario",
         "fecha_creacion": "2024-04-30T21:25:02.770Z"
+    },
+    {
+        "id": 5,
+        "identificacion": "54687984",
+        "nombres": "DANILO",
+        "apellidos": "Estrada",
+        "email": "DaNILO@gmail.com",
+        "direccion": "PEREIRACALLE5hhyu",
+        "telefono": "3154289670",
+        "fechaNacimiento": "2024-07-16",
+        "image": "1722288122546",
+        "password": "1@Danilo",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-07-29T21:22:02.556Z"
     }
 ]

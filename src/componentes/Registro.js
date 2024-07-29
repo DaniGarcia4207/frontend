@@ -18,6 +18,8 @@ export default function Registro() {
     const [passwordError, setPasswordError] = useState(false)
     const [passwordErrorRepeat, setPasswordErrorRepeat] = useState(false)
     const [passComparacion, setPassComparacion] = useState(false)
+    const [imagenPerfil, setImagenPerfil]= useState(false)
+    const [file, setFile] = useState(null)
 
     const form = useRef()
     function idError() { //Esta función setea a false la variable "identificacionError" para que el mensaje de error desaparezca cuando hacen click en el campo de la identificación.
@@ -42,6 +44,9 @@ export default function Registro() {
     function fechaNacimientoErrorFuncion(){
         setFechaNacimientoError(false)
     }
+    function imagenPerfilError(){
+        setImagenPerfil(false)
+    }
     function passError() {
         setPasswordError(false)
     }
@@ -58,16 +63,24 @@ export default function Registro() {
         direccion: "",
         telefono: "",
         fechaNacimiento: "",
+        image: "",
         password: "",
         passRepeat: ""
     });
     const handleChange = (e) => {//cuando se cambie de imput se guarda la informacion en la variable
-        const { name, value } = e.target
+        /*const { name, value } = e.target
         const newValues = {
             ...values,
             [name]: value,
         };
-        setValues(newValues)
+        setValues(newValues)*/
+        if(e.target.name === "foto"){
+            const file = e.target.files ? e.target.files[0] : null
+            setValues({ ...values, [e.target.name] : file})
+            setFile("")
+        }else{
+            setValues({ ...values, [e.target.name]: e.target.value})
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -98,6 +111,9 @@ export default function Registro() {
         } else if (values.fechaNacimiento === "") {
             setFechaNacimientoError(true)
             return;
+        }else if (file === null){
+            setImagenPerfil(true)
+            return;
         } else if (!validPassword.test(values.password)) {
             setPasswordError(true)
             return;
@@ -118,13 +134,18 @@ export default function Registro() {
         })*/
         console.log(values)
         console.log("--------------->>>",URL)
+        const formData = new FormData()
+        for (const [key, value] of Object.entries(values)) {
+            formData.append(key, value)
+        }
+        console.log("formData",formData)
         fetch (`${URL}/registro-usuario`,{ // cuando se ejecuta npm start se carga el archivo devlopment.env
             method:"POST",
-            headers:{
-                "Content-Type": "application/json",
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(values),
+            // headers:{
+            //     "Content-Type": "application/json",
+            //     'Accept': 'application/json'
+            // },
+            body: formData
         })
             .then((response) => {
                 if (response.status === 200) {
@@ -157,7 +178,7 @@ export default function Registro() {
 
     return (
         <div className="body">
-            <form className="principal" onSubmit={handleSubmit} ref={form}>
+            <form className="principal" onSubmit={handleSubmit} ref={form} encType='multipart/form-data'>
                 <h2>REGISTRO</h2>
                 <div className="mb-3">
                     <label htmlFor="disabledTextInput" className="form-label">Identificacion</label>
@@ -194,6 +215,13 @@ export default function Registro() {
                     <label htmlFor="disabledTextInput" className="form-label">Fecha de nacimiento</label>
                     <input type="date" className="form-control" placeholder="mm/dd/aaaa" name="fechaNacimiento" onChange={handleChange} onClick={fechaNacimientoErrorFuncion}/>
                     {fechaNacimientoError ? <p>Debe introducir una fecha de nacimiento</p> : " "}
+                </div>
+                <div className='form-outline mb-4 col-6'>
+                    <label className='form-label' htmlFor='form3Example3cg'>
+                        <strong>Seleccione una imagen de perfil</strong>
+                    </label><br/>
+                    <input type='file' name='foto' accept='.jpg, .jpeg, .png, .gig, .jfif' onChange={handleChange} onClick={imagenPerfilError}/> 
+                     {imagenPerfil ? (<p> Debe seleccionar una imagen de perfil </p>):("")}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="disabledTextInput" className="form-label">Password</label>

@@ -1,4 +1,4 @@
-/*const fs = require('fs').promises;
+const fs = require('fs').promises;
 const path = require('path');
 
 const userFilePath = path.join(
@@ -11,7 +11,7 @@ const controller = {
             // Leer el archivo JSON una sola vez
             const usersData = await fs.readFile(userFilePath, "utf-8");
             const users = JSON.parse(usersData);
-
+            console.log(req.file)
             const ultimo = users.length;
             const usuarioNuevo = {
                 id: ultimo + 1,
@@ -22,6 +22,7 @@ const controller = {
                 direccion : req.body.direccion, 
                 telefono: req.body.telefono,
                 fechaNacimiento : req.body.fechaNacimiento,
+                image: req.file.filename,
                 password: req.body.password,
                 estado: "activo",
                 rol: "Usuario",
@@ -70,8 +71,11 @@ const controller = {
             res.status(500).send("Error interno del servidor")
         }
     },
-};*/
-const express = require('express')
+};
+
+
+
+/*const express = require('express')
 const app = express()
 const axios = require('axios')
 const cors = require('cors')
@@ -151,5 +155,5 @@ const controller = {
       res.status(500).send("Error al insertar registro en la base de datos")
     }
   }
-}  
+} */
 module.exports = controller;
