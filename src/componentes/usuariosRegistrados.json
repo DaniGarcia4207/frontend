@@ -69,5 +69,35 @@
         "estado": "activo",
         "rol": "Usuario",
         "fecha_creacion": "2024-07-29T21:22:02.556Z"
+    },
+    {
+        "id": 6,
+        "identificacion": "687895468",
+        "nombres": "Reprehenderit aute ",
+        "apellidos": "Quas odio eveniet e",
+        "email": "gunupub@mailinator.com",
+        "direccion": "Culpa labore dolor ",
+        "telefono": "4478945612",
+        "fechaNacimiento": "2004-09-05",
+        "image": "1722885242968.jpg",
+        "password": "2@Quintero",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-08-05T19:14:02.975Z"
+    },
+    {
+        "id": 7,
+        "identificacion": "95784517",
+        "nombres": "Aut dolor facere ess",
+        "apellidos": "Et eu voluptatem Ne",
+        "email": "temabare@mailinator.com",
+        "direccion": "Officia sunt fugiat",
+        "telefono": "4287456987",
+        "fechaNacimiento": "2019-03-13",
+        "image": "https://firebasestorage.googleapis.com/v0/b/tienda-de-cosmeticos-b4375.appspot.com/o/images.jpg?alt=media&token=abea6bb5-4c1d-4ad2-b559-4501e8f36c9a",
+        "password": "33@Danie",
+        "estado": "activo",
+        "rol": "Usuario",
+        "fecha_creacion": "2024-08-05T20:27:38.360Z"
     }
 ]

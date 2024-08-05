@@ -20,6 +20,7 @@ export default function Registro() {
     const [passComparacion, setPassComparacion] = useState(false)
     const [imagenPerfil, setImagenPerfil]= useState(false)
     const [file, setFile] = useState(null)
+    const [vistaPrevia, setVistaPrevia] = useState(null)
 
     const form = useRef()
     function idError() { //Esta función setea a false la variable "identificacionError" para que el mensaje de error desaparezca cuando hacen click en el campo de la identificación.
@@ -78,6 +79,8 @@ export default function Registro() {
             const file = e.target.files ? e.target.files[0] : null
             setValues({ ...values, [e.target.name] : file})
             setFile("")
+            const objectURL = window.URL.createObjectURL(file);
+            setVistaPrevia(objectURL)
         }else{
             setValues({ ...values, [e.target.name]: e.target.value})
         }
@@ -222,6 +225,7 @@ export default function Registro() {
                     </label><br/>
                     <input type='file' name='foto' accept='.jpg, .jpeg, .png, .gig, .jfif' onChange={handleChange} onClick={imagenPerfilError}/> 
                      {imagenPerfil ? (<p> Debe seleccionar una imagen de perfil </p>):("")}
+                     <img id='vistaPrevia' src={vistaPrevia} className='img-thumbnail'></img>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="disabledTextInput" className="form-label">Password</label>

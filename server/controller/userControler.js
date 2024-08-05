@@ -5,6 +5,15 @@ const userFilePath = path.join(
     __dirname, 
     "../../src/componentes/usuariosRegistrados.json");
 
+const configuracionFireBase = require("../fireBaseConfiguration")
+const firebase = require("firebase/app")
+const {getStorage, ref, getDownloadURL, uploadBytesResumable} = require ("firebase/storage")
+
+//inicializar aplicacion
+firebase.initializeApp(configuracionFireBase)
+//inicializar cloud storage
+const storage = getStorage()
+
 const controller = {
     register: async function(req, res){
         try{
@@ -12,6 +21,14 @@ const controller = {
             const usersData = await fs.readFile(userFilePath, "utf-8");
             const users = JSON.parse(usersData);
             console.log(req.file)
+
+            const storageRef = ref(storage, req.file.originalname)
+            const metadata = {
+              contentType: req.file.mimeType
+            }
+            const snapshot = await uploadBytesResumable(storageRef, req.file.buffer, metadata)
+            const downloadURL = await getDownloadURL(snapshot.ref)
+
             const ultimo = users.length;
             const usuarioNuevo = {
                 id: ultimo + 1,
@@ -22,7 +39,8 @@ const controller = {
                 direccion : req.body.direccion, 
                 telefono: req.body.telefono,
                 fechaNacimiento : req.body.fechaNacimiento,
-                image: req.file.filename,
+                //image: req.file.filename,
+                image : downloadURL,
                 password: req.body.password,
                 estado: "activo",
                 rol: "Usuario",

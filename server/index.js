@@ -7,6 +7,7 @@ const app = express()
 const port = 3001
 const path = require('path')
 const multer = require('multer')
+const subida = multer ({storage : multer.memoryStorage()})
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
@@ -21,7 +22,7 @@ const storage = multer.diskStorage({
     cb(null, path.join(__dirname, "./public/images")) // ruta donde se guardara la imagen cargada
   },
   filename: function(req, file, cb){
-    cb(null, `${Date.now()}`) // la imagen cargada queda con la fecha y hora del sistema
+    cb(null, `${Date.now()}`+ ".jpg") // la imagen cargada queda con la fecha y hora del sistema
   }
 })
 const upload = multer({storage})
@@ -41,7 +42,8 @@ app.get('/', (req, res) => {
 
 const user = require("./controller/userControler")
 //app.use("/registro-usuario", user.registerBD)
-app.post("/registro-usuario",upload.single("foto"),user.register)
+//app.post("/registro-usuario",upload.single("foto"),user.register)
+app.post("/registro-usuario",subida.single("foto"),user.register)
 //app.use("/login", user.login)
 
 
