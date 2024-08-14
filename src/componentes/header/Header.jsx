@@ -43,6 +43,12 @@ function Header() {
                                 <a className="nav-link" href="#">Iniciar sesion </a> 
                             </li>
                             </Link>
+                            <Link to='/carrito-vacio'>
+                            <li className="nav-item">
+                                 <i class="bi bi-box-arrow-in-right"></i>
+                                <a className="nav-link" href="#">Comprar </a> 
+                            </li>
+                            </Link>
                         </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

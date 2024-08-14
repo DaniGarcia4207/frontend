@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
 import GoogleOAuth from "./googleOAuth/GoogleOAuth";
+import FireBaseAuth from "./Firebase/FireBaseAuth"
 
 const Login = ()=>{
 
@@ -133,6 +134,9 @@ const Login = ()=>{
                                     </div>
                                     <div>
                                     <GoogleOAuth/>
+                                    </div>
+                                    <div>
+                                    <FireBaseAuth/>
                                     </div>
                                     <div class="d-grid gap-2 col-15 mx-auto">
                                         <button className="btn btn-primary btn-lg btn-block" type="submit">Login</button>
