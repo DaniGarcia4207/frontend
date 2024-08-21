@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import './header.css';
 import { Link } from "react-router-dom";
 
 
 function Header() {
+    //sconst {ComprasDelCarrito} = useContext(dataContext);
+    function whatsapp(){
+        const url = `https://wa.link/aquyz0`
+        window.open(url,"_blank");
+    }
+    
     return (
         <div className="contenedor">
             <nav className="navbar navbar-expand-lg">
@@ -28,8 +34,8 @@ function Header() {
                                 <a className="nav-link" href="#">Recursos</a>
                             </li>
                             <li className="nav-item">
-                                <i class="bi bi-person-rolodex"></i>
-                                <a className="nav-link" href="#">Contacto</a>
+                                <i class="bi bi-whatsapp"></i>
+                                <a className="nav-link" href="#" onClick={whatsapp}>Contacto</a>
                             </li>
                             <Link to='/registro'>
                             <li className="nav-item">
@@ -46,7 +52,7 @@ function Header() {
                             <Link to='/carrito-vacio'>
                             <li className="nav-item">
                                  <i class="bi bi-box-arrow-in-right"></i>
-                                <a className="nav-link" href="#">Comprar </a> 
+                                <a className="nav-link " href="#">Comprar </a> 
                             </li>
                             </Link>
                         </ul>
