@@ -8,6 +8,8 @@ import InicioSesion from './componentes/InicioSesion';
 import DataProvider from './componentes/context/DataContext';
 import CarritoVacio from './componentes/carrito/CarritoVacio';
 import Carrito from './componentes/carrito/CarritoElements';
+import CarritoContent from './componentes/carrito/CarritoContents';
+import BarraRedesSociales from './componentes/BarraRedesSociales';
 
 function App(){
   return(
@@ -20,9 +22,10 @@ function App(){
           <Route exact path='/inicio'   element={<InicioSeccion/>}/>
           <Route exact path='*'   element={<NotFound/>}/>
           <Route exact path='/sesion'   element={<InicioSesion/>}/>
-          <Route exact path='/carrito'   element={<Carrito/>}/>
           <Route exact path='/carrito-vacio'   element={<CarritoVacio/>}/>
+          <Route exact path='/carrito-content'   element={<CarritoContent/>}/>
         </Routes>
+        <BarraRedesSociales></BarraRedesSociales>
       </HashRouter>
     </DataProvider>
   )

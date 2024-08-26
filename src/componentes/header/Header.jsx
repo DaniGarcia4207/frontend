@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import './header.css';
 import { Link } from "react-router-dom";
+import {dataContext}from '../context/DataContext';
 
 
 function Header() {
-    //sconst {ComprasDelCarrito} = useContext(dataContext);
+    const {comprasDelCarrito, setComprasDelCarrito}= useContext(dataContext)
     function whatsapp(){
         const url = `https://wa.link/aquyz0`
         window.open(url,"_blank");
@@ -49,10 +50,9 @@ function Header() {
                                 <a className="nav-link" href="#">Iniciar sesion </a> 
                             </li>
                             </Link>
-                            <Link to='/carrito-vacio'>
+                            <Link to='/carrito-content'>
                             <li className="nav-item">
-                                 <i class="bi bi-box-arrow-in-right"></i>
-                                <a className="nav-link " href="#">Comprar </a> 
+                               <h2 className="carrito">🛒{comprasDelCarrito.length}</h2>
                             </li>
                             </Link>
                         </ul>

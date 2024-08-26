@@ -3,6 +3,7 @@ import Header from './componentes/header/Header'
 import Body from './componentes/body/CardList'
 import Carrusel from './componentes/Carrusel/Carrusel'
 import Footer from './componentes/footer/Footer'
+import BarraRedesSociales from './componentes/BarraRedesSociales.js';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
     <Header/>
     <Carrusel/>
     <Body/>
+    <BarraRedesSociales/>
     <Footer/>
     </div>
   );

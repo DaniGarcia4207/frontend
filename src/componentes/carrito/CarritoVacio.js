@@ -11,9 +11,9 @@ export default function CarritoVacio() {
             <div className="card-body cart">
               <div className="col-sm-12 empty-cart-cls text-center">
                 <img src="carrito.jpg" alt='carrito-vacio' width="200" height="400" className="mb-1 mr-1"/>
-                <h3><strong>Your Cart is Empty</strong></h3>
-                <h4>Add something to make me happy 😃</h4>
-                <a href="/" className="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+                <h3><strong>Tu carro esta vacio</strong></h3>
+                <h4>Agrega cosas que te hagan feliz 😃</h4>
+                <a href="/" className="btn btn-primary cart-btn-transform m-3" data-abc="true">Comprar</a>
               </div>
             </div>
           </div>
