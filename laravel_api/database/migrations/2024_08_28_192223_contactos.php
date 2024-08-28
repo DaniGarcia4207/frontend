@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('correo');
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 
