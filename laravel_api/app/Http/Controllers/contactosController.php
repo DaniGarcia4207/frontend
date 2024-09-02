@@ -129,13 +129,61 @@ class contactosController extends Controller
         return response()->json($data,200);
     }
 
-    public function actualizar1 (Request $request, $id){
-        if(!$contacto){
-            $data=[
-                'message' => 'Estudiante no encontrado',
+    public function patch(Request $request, $id) {
+      
+        $contacto = Contactos::find($id);
+        
+        if (!$contacto) {
+            $data = [
+                'message' => 'Contacto no encontrado',
                 'status' => 404
             ];
             return response()->json($data, 404);
         }
+    
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'sometimes|required|max:15',
+            'direccion' => 'sometimes|required|max:25',
+            'telefono' => 'sometimes|required|digits:10',
+            'correo' => [
+                'sometimes',
+                'required',
+                'email',
+                Rule::unique('contactos')->ignore($contacto->id)
+            ],
+        ]);
+    
+        if ($validator->fails()) {
+            $data = [
+                'message' => 'Error en la validación de los datos',
+                'errors' => $validator->errors(),
+                'status' => 400
+            ];
+            return response()->json($data, 400);
+        }
+
+        if ($request->has('nombre')) {
+            $contacto->nombre = $request->nombre;
+        }
+        if ($request->has('direccion')) {
+            $contacto->direccion = $request->direccion;
+        }
+        if ($request->has('telefono')) {
+            $contacto->telefono = $request->telefono;
+        }
+        if ($request->has('correo')) {
+            $contacto->correo = $request->correo;
+        }
+    
+        $contacto->save();
+    
+        $data = [
+            'message' => 'Contacto actualizado',
+            'contacto' => $contacto,
+            'status' => 200
+        ];
+    
+        return response()->json($data, 200);
     }
+    
 }
